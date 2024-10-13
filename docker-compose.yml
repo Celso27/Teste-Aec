@@ -1,0 +1,20 @@
+﻿version: '3.4'
+
+services:
+  rpa:
+    image: rpa
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Production
+    volumes:
+      - ./data:/app/Data
+    networks:
+      - rpa_network
+
+networks:
+  rpa_network:
+    driver: bridge
