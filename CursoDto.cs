@@ -1,6 +1,6 @@
 ﻿// Diretório: DTOs/CursoDto.cs
 
-namespace RPA.DTOs
+namespace ProjetoBusca.DTOs
 {
     public class CursoDto
     {

@@ -1,12 +1,12 @@
 ﻿// Diretório: Repositories/CursoRepository.cs
 using Microsoft.EntityFrameworkCore;
-using RPA.Data;
-using RPA.Models;
-using RPA.Repositories.Interfaces;
+using ProjetoBusca.Data;
+using ProjetoBusca.Models;
+using ProjetoBusca.Repositories.Interfaces;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RPA.Repositories
+namespace ProjetoBusca.Repositories
 {
     public class CursoRepository : ICursoRepository
     {

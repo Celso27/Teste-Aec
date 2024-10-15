@@ -1,11 +1,10 @@
-﻿// Diretório: Controllers/CursoController.cs
-using Microsoft.AspNetCore.Mvc;
-using RPA.Models;
-using RPA.Services;
+﻿using Microsoft.AspNetCore.Mvc;
+using ProjetoBusca.Models;
+using ProjetoBusca.Services;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace RPA.Controllers
+namespace ProjetoBusca.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
@@ -18,6 +17,7 @@ namespace RPA.Controllers
             _cursoService = cursoService;
         }
 
+        // GET /api/cursos
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Curso>>> GetCursos()
         {
@@ -25,6 +25,7 @@ namespace RPA.Controllers
             return Ok(cursos);
         }
 
+        // GET /api/cursos/{id}
         [HttpGet("{id}")]
         public async Task<ActionResult<Curso>> GetCurso(int id)
         {
@@ -33,14 +34,24 @@ namespace RPA.Controllers
             {
                 return NotFound();
             }
+
             return Ok(curso);
         }
 
+        // POST /api/cursos
         [HttpPost]
         public async Task<ActionResult> AddCurso(Curso curso)
         {
             await _cursoService.AddCursoAsync(curso);
             return CreatedAtAction(nameof(GetCurso), new { id = curso.Id }, curso);
+        }
+
+        // POST /api/cursos/buscar-na-alura
+        [HttpPost("buscar-na-alura")]
+        public async Task<ActionResult> BuscarCursosNaAlura([FromBody] string termoBusca)
+        {
+            var cursos = await _cursoService.BuscarCursosNaAluraAsync(termoBusca);
+            return Ok(cursos);
         }
     }
 }

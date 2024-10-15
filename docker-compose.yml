@@ -1,8 +1,8 @@
 ﻿version: '3.4'
 
 services:
-  rpa:
-    image: rpa
+  busca:
+    image: projetobusca
     build:
       context: .
       dockerfile: Dockerfile
@@ -13,8 +13,8 @@ services:
     volumes:
       - ./data:/app/Data
     networks:
-      - rpa_network
+      - projeto_network
 
 networks:
-  rpa_network:
+  busca_network:
     driver: bridge

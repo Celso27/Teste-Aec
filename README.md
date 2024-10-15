@@ -1,7 +1,7 @@
-﻿RPA API - Como Rodar Localmente
+﻿ProjetoBusca API - Como Rodar Localmente
 ===============================
 
-Este guia explica como configurar e rodar a aplicação RPA API localmente. Esta aplicação foi desenvolvida usando ASP.NET
+Este guia explica como configurar e rodar a aplicação ProjetoBusca API localmente. Esta aplicação foi desenvolvida usando ASP.NET
 Core e utiliza Entity Framework Core com SQLite. O passo a passo inclui a instalação de dependências, execução de
 migrações e o comando para iniciar a aplicação.
 
@@ -60,7 +60,7 @@ Copiar código
 
 `dotnet ef database update`
 
-Este comando irá criar o banco de dados `RPA.db` e aplicar todas as migrações pendentes.
+Este comando irá criar o banco de dados `BancoDados.db` e aplicar todas as migrações pendentes.
 
 ### 4\. Rodar a Aplicação
 

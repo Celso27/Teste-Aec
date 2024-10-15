@@ -1,4 +1,4 @@
-﻿namespace RPA;
+﻿namespace ProjetoBusca;
 
 public class Startup
 {

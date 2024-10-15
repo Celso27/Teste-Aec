@@ -21,19 +21,19 @@ RUN apt-get update && apt-get install -y \
 FROM mcr.microsoft.com/dotnet/sdk:8.0 AS build
 ARG BUILD_CONFIGURATION=Release
 WORKDIR /src
-COPY ["RPA.csproj", "./"]
-RUN dotnet restore "RPA.csproj"
+COPY ["ProjetoBusca.csproj", "./"]
+RUN dotnet restore "ProjetoBusca.csproj"
 COPY . .
 WORKDIR "/src/"
-RUN dotnet build "RPA.csproj" -c $BUILD_CONFIGURATION -o /app/build
+RUN dotnet build "ProjetoBusca.csproj" -c $BUILD_CONFIGURATION -o /app/build
 
 # Etapa de Publicação
 FROM build AS publish
 ARG BUILD_CONFIGURATION=Release
-RUN dotnet publish "RPA.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
+RUN dotnet publish "ProjetoBusca.csproj" -c $BUILD_CONFIGURATION -o /app/publish /p:UseAppHost=false
 
 # Etapa Final - Execução do Container
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "RPA.dll"]
+ENTRYPOINT ["dotnet", "ProjetoBusca.dll"]

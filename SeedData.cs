@@ -1,4 +1,4 @@
-﻿namespace RPA.Data;
+﻿namespace ProjetoBusca.Data;
 
 public class SeedData
 {
